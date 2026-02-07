@@ -1,4 +1,4 @@
-# Apology Website for Puja
+# Apology Website for
 
 A modern, responsive single-page apology website with a garden-themed design.
 
