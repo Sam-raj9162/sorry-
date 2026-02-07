@@ -1,0 +1,609 @@
+/* =============================================
+   Romantic Apology Website Styles
+   Theme: Soft Romantic Red with Elegance
+   ============================================= */
+
+/* CSS Variables */
+:root {
+    /* Colors - Natural Garden Theme */
+    --deep-green: #2D5A3D;
+    --soft-green: #4A7C59;
+    --sage-green: #87A878;
+    --blush-pink: #205415;
+    --soft-rose: #0f2d09;
+    --cream: #FDF8F5;
+    --warm-white: #FFFEF9;
+    --pure-white: #FFFFFF;
+    --text-dark: #3D3D3D;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: rgba(45, 90, 61, 0.2);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    min-height: 100vh;
+    color: var(--pure-white);
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Blurred Image Background - minimal blur to show face */
+.bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('1770426439371.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    filter: blur(2px) brightness(0.92);
+    transform: scale(1.02);
+    z-index: -2;
+}
+
+/* Soft Natural Gradient Overlay */
+.bg-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(45, 90, 61, 0.25) 0%,
+            rgba(74, 124, 89, 0.2) 25%,
+            rgba(135, 168, 120, 0.15) 50%,
+            rgba(232, 180, 184, 0.2) 75%,
+            rgba(45, 90, 61, 0.25) 100%);
+    z-index: -1;
+}
+
+/* Soft Light Effects */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+        radial-gradient(ellipse at bottom right, rgba(232, 180, 184, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Floating Sorry Container */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-sorry {
+    position: absolute;
+    opacity: 0.35;
+    animation: floatSorry linear infinite;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+@keyframes floatSorry {
+    0% {
+        transform: translateY(100vh) rotate(-5deg) scale(0.8);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.35;
+    }
+
+    90% {
+        opacity: 0.35;
+    }
+
+    100% {
+        transform: translateY(-100px) rotate(5deg) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Main Content */
+.main-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+/* Title Section */
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 600;
+    color: var(--pure-white);
+    text-shadow:
+        0 2px 15px rgba(45, 90, 61, 0.4),
+        0 4px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.date {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--blush-pink);
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Decorative Line */
+.decorative-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--soft-green), transparent);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Message Section */
+.message-section {
+    animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Glassmorphism Message Card */
+.message-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 50px 40px;
+    box-shadow:
+        0 25px 70px var(--glass-shadow),
+        0 10px 30px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.message-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
+.card-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.salutation {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--blush-pink);
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.message-text {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 20px;
+    font-weight: 300;
+    text-align: left;
+}
+
+.message-text.highlight {
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.15), rgba(196, 30, 58, 0.1));
+    padding: 20px 25px;
+    border-radius: 16px;
+    border-left: 3px solid var(--blush-pink);
+    margin: 30px 0;
+    font-style: italic;
+}
+
+.thank-you-section {
+    margin: 35px 0;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.thank-line {
+    font-size: 1.1rem;
+    color: var(--light-pink);
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.thank-line.sorry-line {
+    color: var(--blush-pink);
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.respect-text {
+    font-size: 1.15rem;
+    color: var(--pure-white);
+    text-align: center;
+    margin: 30px 0;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.signature {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--blush-pink);
+    text-align: right;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* Forgive Me Button */
+.forgive-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px auto 0;
+    padding: 18px 45px;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--pure-white);
+    background: linear-gradient(135deg, var(--deep-green), var(--soft-green));
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 10px 30px rgba(45, 90, 61, 0.4),
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: var(--transition-smooth);
+}
+
+.forgive-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.forgive-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+        0 15px 40px rgba(45, 90, 61, 0.5),
+        0 8px 20px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.forgive-btn:hover::before {
+    left: 100%;
+}
+
+.forgive-btn:active {
+    transform: translateY(-1px) scale(1);
+}
+
+.btn-heart {
+    font-size: 1.3rem;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.footer p {
+    font-size: 0.95rem;
+    color: rgba(45, 90, 61, 0.8);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Popup Modal */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(45, 90, 61, 0.75);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-card {
+    background: linear-gradient(135deg, rgba(45, 90, 61, 0.9), rgba(74, 124, 89, 0.95));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 50px 60px;
+    text-align: center;
+    transform: scale(0.8) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.5),
+        0 15px 40px rgba(45, 90, 61, 0.4);
+}
+
+.popup-overlay.active .popup-card {
+    transform: scale(1) translateY(0);
+}
+
+.popup-heart {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: heartBeat 1s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(1.1);
+    }
+}
+
+.popup-message {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--pure-white);
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.popup-close {
+    padding: 12px 35px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--deep-green);
+    background: var(--cream);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 5px 20px rgba(45, 90, 61, 0.3);
+}
+
+.popup-close:hover {
+    background: var(--pure-white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 182, 193, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 30px 15px 50px;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .message-card {
+        padding: 35px 25px;
+        border-radius: 20px;
+    }
+
+    .salutation {
+        font-size: 1.6rem;
+    }
+
+    .message-text {
+        font-size: 0.98rem;
+    }
+
+    .message-text.highlight {
+        padding: 15px 20px;
+    }
+
+    .thank-you-section {
+        padding: 20px 15px;
+    }
+
+    .thank-line {
+        font-size: 1rem;
+    }
+
+    .forgive-btn {
+        padding: 15px 35px;
+        font-size: 1rem;
+    }
+
+    .puja-photo {
+        max-width: 280px;
+    }
+
+    .popup-card {
+        padding: 40px 30px;
+        margin: 0 20px;
+    }
+
+    .popup-message {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.7rem;
+    }
+
+    .date {
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+    }
+
+    .message-card {
+        padding: 28px 20px;
+    }
+
+    .salutation {
+        font-size: 1.4rem;
+    }
+
+    .puja-photo {
+        max-width: 240px;
+    }
+
+    .popup-heart {
+        font-size: 3rem;
+    }
+}
+
+/* Selection Styling */
+::selection {
+    background: var(--rose-red);
+    color: var(--pure-white);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--deep-red);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--rose-red);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--soft-crimson);
+}
